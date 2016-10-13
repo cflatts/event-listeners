@@ -23,33 +23,20 @@ disappearButtonNode.addEventListener('click', disappearBar)
 
 //PART 2
 
-var nameListNode = document.querySelector('#add-guest .guest-list')
-var inputNode = document.querySelector('#add-guest .answer-box input')
+var guestListNode = document.querySelector('.guest-list')
+var addInputNode = document.querySelector('#add-guest')
 
-var addName = function(clickEvent) {
-    if(clickEvent.keyCode === 13) {
-        var guestName = clickEvent.target.value
+var addGuest = function(evt) {
+    if(evt.keyCode === 13) {
+        var guestName = evt.target.value
         var liNode = document.createElement('li')
-        liNode.textContent = guestName
-        nameListNode.appendChild(liNode)
-        inputNode.value = ''
+        liNode.innerHTML = guestName
+        guestListNode.appendChild(liNode)
+        liNode.innerHTML = guestName
+
     }
 }
 
-inputNode.addEventListener('keydown', addName)
+addInputNode.addEventListener('keydown', addGuest)
 
 //PART 3
-
-var nameListNode = document.querySelector('#add-guest-bonus .guest-list')
-var inputNode = document.querySelector('#add-guest-bonus .answer-box input')
-
-var addName = function(clickEvent) {
-    if(clickEvent.keyCode === 13) {
-        var guestName = clickEvent.target.value
-        var liNode = document.createElement('li')
-        liNode.textContent = guestName
-        nameListNode.appendChild(liNode)
-        nameListNode.appendChild(liNode)
-        inputNode.value = ''
-    }
-}
