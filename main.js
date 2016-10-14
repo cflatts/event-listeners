@@ -32,11 +32,37 @@ var addGuest = function(evt) {
         var liNode = document.createElement('li')
         liNode.innerHTML = guestName
         guestListNode.appendChild(liNode)
-        liNode.innerHTML = guestName
-
     }
 }
 
 addInputNode.addEventListener('keydown', addGuest)
 
 //PART 3
+
+var inputNode = document.querySelector('#new-guest')
+var listNode = document.querySelector('#guest-list')
+var buttonNode = document.createElement('button')
+
+var addNewGuest = function(evt) {
+    if(evt.keyCode === 13) {
+        var guestName  = evt.target.value
+
+        var liNode = document.createElement('li')
+
+
+        liNode.innerHTML = guestName
+        buttonNode.innerHTML = 'x'
+        liNode.appendChild(buttonNode)
+
+        listNode.appendChild(liNode)
+        return buttonNode
+    }
+}
+
+var removeGuest = function(liNode) {
+    listNode.removeChild(liNode)
+}
+
+buttonNode.addEventListener('click', removeGuest)
+inputNode.addEventListener('keydown', addNewGuest)
+
